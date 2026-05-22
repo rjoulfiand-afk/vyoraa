@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wish VVIP by Alycia Vyora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Palet Warna Pink & Putih Elegan */
+            --pink-primary: #FF7EB3;   /* Soft Rose Pink */
+            --pink-secondary: #FFE2ED; /* Sangat muda buat background/aksen */
+            --pink-dark: #D6336C;      /* Deep Pink buat teks biar kebaca jelas */
+            --white: #FFFFFF;
+            --bg-color: #FDF9FA;
+            --text-dark: #2C3E50;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 126, 179, 0.3);
+            --shadow-lux: 0 15px 35px rgba(255, 126, 179, 0.15);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #fff0f5 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Background Pattern Elegan (Pink Soft) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--pink-secondary) 1.5px, transparent 1.5px);
+            background-size: 35px 35px;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow-lux);
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Header Accent */
+        .dashboard-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: linear-gradient(90deg, var(--pink-secondary), var(--pink-primary), var(--pink-secondary));
+            z-index: 10;
+        }
+
+        .header {
+            padding: 35px 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 8px 20px rgba(255, 126, 179, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animasi Ping/Glow pada foto */
+        .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--pink-primary), transparent);
+            z-index: 1;
+            animation: rotateGlow 3s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            color: var(--pink-dark);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #b2bec3;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Form Content */
+        .content-section {
+            padding: 0 30px 35px;
+            transition: var(--transition);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInGroup 0.5s ease backwards;
+        }
+
+        /* Staggered animation */
+        .input-group:nth-child(1) { animation-delay: 0.1s; }
+        .input-group:nth-child(2) { animation-delay: 0.2s; }
+        .input-group:nth-child(3) { animation-delay: 0.3s; }
+        .input-group:nth-child(4) { animation-delay: 0.4s; }
+        .input-group:nth-child(5) { animation-delay: 0.5s; }
+        .input-group:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInGroup {
+            from { opacity: 0; transform: translateX(-15px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--pink-dark);
+            margin-bottom: 8px;
+            margin-left: 5px;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-dark);
+            transition: var(--transition);
+            box-shadow: inset 0 2px 5px rgba(255, 126, 179, 0.02);
+        }
+
+        .input-control:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(255, 126, 179, 0.15), inset 0 1px 2px rgba(0,0,0,0.01);
+            transform: translateY(-2px);
+        }
+
+        textarea.input-control {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .input-control[readonly] {
+            background: #fff0f5;
+            color: #d6336c;
+            font-weight: 500;
+            cursor: not-allowed;
+            border-color: var(--pink-secondary);
+        }
+
+        /* Custom Blockquote Preview di Dashboard */
+        .preview-blockquote {
+            border-left: 4px solid var(--pink-primary);
+            padding-left: 15px;
+            margin: 10px 0;
+            background: rgba(255, 126, 179, 0.05);
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Ripple pada tombol */
+        .btn::after {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            display: block;
+            border-radius: 50%;
+            width: 0; height: 0;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+        }
+
+        .btn:active::after {
+            width: 300px; height: 300px; opacity: 1; transition: 0s;
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, #FF7EB3, #D6336C);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(255, 126, 179, 0.3);
+        }
+
+        .btn-pink:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 126, 179, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--pink-primary);
+            color: var(--pink-dark);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 126, 179, 0.05);
+        }
+
+        .btn-wa {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-wa:hover, .btn-ig:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        #resultSection { display: none; }
+
+        /* Custom Scrollbar for Textarea */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--pink-secondary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--pink-primary); }
+
+        /* Toast Alert */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: -300px; 
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid #e74c3c;
+            color: #333;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toast.show { right: 20px; }
+        .toast.success { border-left-color: var(--pink-primary); }
+        .toast i { font-size: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-exclamation-circle" style="color:#e74c3c;"></i>
+        <span id="toast-msg">Woopss, isi semua format yaa!</span>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <header class="header">
+            <div class="profile-wrapper">
+                <img src="imut.jpg" alt="Alycia" class="profile-pic">
+            </div>
+            <h1 class="title">Wish VVIP</h1>
+            <p class="subtitle">Administrator Desk</p>
+        </header>
+
+        <div id="formSection" class="content-section">
+            <div class="input-group">
+                <label><i class="far fa-user"></i> Nama Lengkap</label>
+                <input type="text" id="inpNama" class="input-control" placeholder="Masukkan nama">
+            </div>
+            
+            <div class="input-group">
+                <label><i class="fas fa-birthday-cake"></i> Umur</label>
+                <input type="number" id="inpUmur" class="input-control" placeholder="Contoh: 21">
+            </div>
+
+            <div class="input-group">
+                <label><i class="far fa-building"></i> Asal Kota</label>
+                <input type="text" id="inpKota" class="input-control" placeholder="Tempat tinggal">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fab fa-instagram"></i> Link / Username IG</label>
+                <input type="text" id="inpIg" class="input-control" placeholder="@username">
+            </div>
+
+            <div class="input-group">
+                <label><i class="far fa-gem"></i> Benefit</label>
+                <input type="text" id="inpBenefit" class="input-control" value="( wajib tanya Admin )" readonly>
+            </div>
+
+            <div class="input-group">
+                <label><i class="far fa-comment-dots"></i> Saran / Masukan</label>
+                <textarea id="inpSaran" class="input-control" placeholder="Ketik saran dan masukan"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label><i class="far fa-heart"></i> Perasaan Masuk Wish</label>
+                <textarea id="inpPerasaan" class="input-control" placeholder="Ungkapin perasaannya"></textarea>
+            </div>
+
+            <button class="btn btn-pink" onclick="generatePesan()">
+                <i class="fas fa-magic"></i> Generate Format Text
+            </button>
+        </div>
+
+        <div id="resultSection" class="content-section">
+            
+            <div style="background: var(--white); border-radius: 16px; padding: 20px; border: 1px solid #ffe2ed; margin-bottom: 20px; box-shadow: inset 0 2px 10px rgba(255,126,179,0.03);">
+                <h3 style="font-family: 'Playfair Display'; color: var(--pink-dark); margin-bottom: 15px; text-align: center; font-size: 20px; border-bottom: 1px dashed var(--pink-primary); padding-bottom: 10px;">
+                    <i class="fas fa-check-circle"></i> Preview Pesan
+                </h3>
+                
+                <div id="previewWeb" style="font-size: 14px; line-height: 1.6; color: #333;"></div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-outline" onclick="copyKeClipboard()">
+                    <i class="far fa-copy"></i> Copy Teks    
+                </button>
+                
+                <div class="btn-row">
+                    <button class="btn btn-wa" onclick="kirimKeWA()">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="btn btn-ig" onclick="bukaInstagram()">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </button>
+                </div>
+
+                <button class="btn" style="background: #f1f2f6; color: #576574; margin-top: 10px;" onclick="kembaliEdit()">
+                    <i class="fas fa-arrow-left"></i> Kembali Edit
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- KONFIGURASI ADMIN ---
+        const NO_WA_ADMIN = "628980513003";
+        const LINK_IG_ADMIN = "https://www.instagram.com/olivvcyaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+
+        let teksWAFinal = ""; // Variabel nyimpen teks buat di copy/WA
+
+        // Menampilkan Toast
+        function showToast(msg, type = 'error') {
+            const toast = document.getElementById('toast');
+            const icon = toast.querySelector('i');
+            
+            toast.className = 'toast'; 
+            toast.classList.add(type); 
+            document.getElementById('toast-msg').innerText = msg;
+            
+            if(type === 'success') {
+                icon.className = 'fas fa-check-circle';
+                icon.style.color = 'var(--pink-primary)';
+            } else {
+                icon.className = 'fas fa-exclamation-circle';
+                icon.style.color = '#e74c3c';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Logic potong link IG
+        function bersihkanIG(url) {
+            let val = url.trim().replace(/\/$/, "");
+            let match = val.match(/(?:https?:\/\/)?(?:www\.)?instagram\.com\/([a-zA-Z0-9_.]+)/i);
+            if (match && match[1]) return "@" + match[1];
+            if (!val.startsWith("@") && !val.includes(" ")) return "@" + val;
+            return val;
+        }
+
+        // --- FONT UNICODE GENERATOR (Estetik Pro Mode) ---
+        function fontSansBold(str) {
+            const chars = {'A':'𝗔','B':'𝗕','C':'𝗖','D':'𝗗','E':'𝗘','F':'𝗙','G':'𝗚','H':'𝗛','I':'𝗜','J':'𝗝','K':'𝗞','L':'𝗟','M':'𝗠','N':'𝗡','O':'𝗢','P':'𝗣','Q':'𝗤','R':'𝗥','S':'𝗦','T':'𝗧','U':'𝗨','V':'𝗩','W':'𝗪','X':'𝗫','Y':'𝗬','Z':'𝗭','a':'𝗮','b':'𝗯','c':'𝗰','d':'𝗱','e':'𝗲','f':'𝗳','g':'𝗴','h':'𝗵','i':'𝗶','j':'𝗷','k':'𝗸','l':'𝗹','m':'𝗺','n':'𝗻','o':'𝗼','p':'𝗽','q':'𝗾','r':'𝗿','s':'𝘀','t':'𝘁','u':'𝘂','v':'𝘃','w':'𝘄','x':'𝘅','y':'𝘆','z':'𝘇','0':'𝟬','1':'𝟭','2':'𝟮','3':'𝟯','4':'𝟰','5':'𝟱','6':'𝟲','7':'𝟳','8':'𝟴','9':'𝟵'};
+            return str.replace(/[A-Za-z0-9]/g, m => chars[m] || m);
+        }
+
+        function fontSerifBoldItalic(str) {
+            const chars = {'A':'𝑨','B':'𝑩','C':'𝑪','D':'𝑫','E':'𝑬','F':'𝑭','G':'𝑮','H':'𝑯','I':'𝑰','J':'𝑱','K':'𝑲','L':'𝑳','M':'𝑴','N':'𝑵','O':'𝑶','P':'𝑷','Q':'𝑸','R':'𝑹','S':'𝑺','T':'𝑻','U':'𝑼','V':'𝑽','W':'𝑾','X':'𝑿','Y':'𝒀','Z':'𝑹','a':'𝒂','b':'𝒃','c':'𝒄','d':'𝒅','e':'𝒆','f':'𝒇','g':'𝒈','h':'𝒉','i':'𝒊','j':'𝒋','k':'𝒌','l':'𝒍','m':'𝒎','n':'𝒏','o':'𝒐','p':'𝒑','q':'𝒒','r':'𝒓','s':'𝒔','t':'𝒕','u':'𝒖','v':'𝒗','w':'𝒘','x':'𝒙','y':'𝒚','z':'𝒛'};
+            return str.replace(/[A-Za-z]/g, m => chars[m] || m);
+        }
+
+        function toBlockquote(text) {
+            if (!text) return "";
+            return "> " + text.split('\n').join('\n> ');
+        }
+
+        // Action Generate Form
+        function generatePesan() {
+            const nama = document.getElementById('inpNama').value.trim();
+            const umur = document.getElementById('inpUmur').value.trim();
+            const kota = document.getElementById('inpKota').value.trim();
+            const igRaw = document.getElementById('inpIg').value.trim();
+            const benefit = document.getElementById('inpBenefit').value;
+            const saran = document.getElementById('inpSaran').value.trim();
+            const perasaan = document.getElementById('inpPerasaan').value.trim();
+
+            if (!nama || !umur || !kota || !igRaw || !saran || !perasaan) {
+                showToast('Woopss, isi semua format yaa!', 'error');
+                return;
+            }
+
+            const ig = bersihkanIG(igRaw);
+            const tgl = new Date().toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' });
+
+            // 1. Tampilan Visual di Web 
+            document.getElementById('previewWeb').innerHTML = `
+                <div style="text-align:center; margin-bottom:10px;">
+                    <b style="color:var(--pink-dark);">${fontSerifBoldItalic("Wish VVIP Access")}</b><br>
+                    <small style="color:#aaa;">${tgl}</small>
+                </div>
+                <p><b>${fontSansBold("Nama")}</b> : ${nama}</p>
+                <p><b>${fontSansBold("Umur")}</b> : ${umur} Tahun</p>
+                <p><b>${fontSansBold("Asal Kota")}</b> : ${kota}</p>
+                <p><b>${fontSansBold("Link IG")}</b> : <span style="color:var(--pink-primary); font-weight:600;">${ig}</span></p>
+                <p><b>${fontSansBold("Benefit")}</b> : ${benefit}</p>
+                
+                <p style="margin-top:15px; color:var(--pink-dark);"><b>${fontSansBold("Saran & Masukan")} :</b></p>
+                <div class="preview-blockquote">${saran.replace(/\n/g, '<br>')}</div>
+
+                <p style="margin-top:10px; color:var(--pink-dark);"><b>${fontSansBold("Perasaan masuk wish")} :</b></p>
+                <div class="preview-blockquote">${perasaan.replace(/\n/g, '<br>')}</div>
+            `;
+
+            // 2. Format Asli untuk Copy & WA
+            teksWAFinal = 
+`🌸 ${fontSerifBoldItalic("Form Wish VVIP")} 🌸
+──────────────
+${fontSansBold("Nama")} : ${nama}
+${fontSansBold("Umur")} : ${umur} Tahun
+${fontSansBold("Asal Kota")} : ${kota}
+${fontSansBold("Link IG")} : ${ig}
+${fontSansBold("Benefit")} : ${benefit}
+
+📝 ${fontSansBold("Saran & Masukan")} :
+${toBlockquote(saran)}
+
+💖 ${fontSansBold("Perasaan")} :
+${toBlockquote(perasaan)}`;
+
+            // Switch view animasi
+            document.getElementById('formSection').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('formSection').style.display = 'none';
+                document.getElementById('resultSection').style.display = 'block';
+                void document.getElementById('resultSection').offsetWidth;
+                document.getElementById('resultSection').style.opacity = '1';
+            }, 300);
+        }
+
+        function copyKeClipboard() {
+            navigator.clipboard.writeText(teksWAFinal).then(() => { 
+                showToast("Teks berhasil disalin! 📋", "success");
+            }).catch(() => {
+                showToast("Gagal menyalin teks", "error");
+            });
+        }
+
+        function kirimKeWA() {
+            const pesanEncode = encodeURIComponent(teksWAFinal);
+            window.open(`https://wa.me/${NO_WA_ADMIN}?text=${pesanEncode}`, '_blank');
+        }
+
+        function bukaInstagram() {
+            window.open(LINK_IG_ADMIN, '_blank');
+        }
+
+        function kembaliEdit() {
+            document.getElementById('resultSection').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('resultSection').style.display = 'none';
+                document.getElementById('formSection').style.display = 'block';
+                void document.getElementById('formSection').offsetWidth;
+                document.getElementById('formSection').style.opacity = '1';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
